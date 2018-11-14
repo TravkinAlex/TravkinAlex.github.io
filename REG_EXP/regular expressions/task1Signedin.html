@@ -1,0 +1,70 @@
+<!DOCTYPE = html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+      <link rel="stylesheet" type="text/css" href="task1style.css">
+      <title>Online file storage</title>
+      <script type="text/javascript" src="script.js"></script>
+   </head>
+   <body  onload="fill()">
+      <header>
+         <h1><img class="folder" src="folder.png" height="70">File storage v1.0<img class="folder" src="folder.png" height="70"></h1>
+         <hr>
+      </header>
+      <div id="login_status">You logged in as <strong>Tavish DeGroot</strong>. <a href="task1notSignedin.html">Log out</a></div>
+      <hr>
+      <div id="main">
+         <div id="tips">
+            <div>
+               <strong>Allowed uploads:</strong>
+               <ul>
+                  <li>ZIP: under 20 Mb</li>
+                  <li>DOCX: under 40 Mb</li>
+                  <li>PPTX: under 50 Mb</li>
+               </ul>
+               <strong>Used:</strong><br>
+               240.5 Mb of 100 Mb
+            </div>
+         </div>
+         <div id="files">
+            <div>
+               <table id="filetable">
+                  <tr>
+                     <th  onclick="sortFiles('name')" title="Sort by file name" class="sorting">File</th>
+                     <th onclick="sortFiles('size')" title="Sort by file size" class="sorting">Size (kb)</th>
+                     <th onclick="sortFiles('time')" title="Sort by time of upload" class="sorting">Date-time</th>
+                     <th>Delete</th>
+                  </tr>
+               </table>
+               <br><br>
+               <div class="input_field">
+                  Upload new file:<br><br>
+                  <p id="demo"></p>
+                  <input type="submit" class="filebuttons" value="Browse...">
+                  <input type="text" id="filepath1" placeholder="Path to file"><br><br>
+                  <input type="submit" class="filebuttons" value="Upload" >
+               </div>
+               <div class="input_field">
+                  Request file from remote server:<br><br>
+                  <input type="text" id="filepath2" placeholder="File request"><br><br>
+                  Put in storage: <input type="checkbox"><br><br>
+                  <input type="submit" class="filebuttons" value="Request" >
+               </div>
+            </div>
+         </div>
+         <div id="stats">
+            <div>
+               <strong>Stats:</strong>
+               <ul>
+                  <li>Users: 123</li>
+                  <li>Files: 6942</li>
+                  <li>Total storage: 2500 Mb</li>
+                  <li>Storage per user: 50 Mb</li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <footer><strong>Created by Oleksandr Travienikov</strong></footer>
+   </body>
+</html>

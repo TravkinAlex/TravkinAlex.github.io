@@ -1,0 +1,78 @@
+<!DOCTYPE = html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+      <link rel="stylesheet" type="text/css" href="task1style.css">
+      <title>Online file storage</title>
+	
+	  <script type="text/javascript">
+        var emailPattern=/(?=.*[a-zA-ZА-Яа-я].*@)[a-zA-ZА-Яа-я0-9_\.-]{4,20}@(?=.*[a-zA-ZА-Яа-я].*\.)[a-zA-ZА-Яа-я0-9_-]{2,5}\.(?=.*[a-zA-ZА-Яа-я].*(\.|$))[a-zA-ZА-Яа-я0-9_-]{2,5}($|(\.(?=.*[a-zA-ZА-Яа-я].*$))[a-zA-ZА-Яа-я0-9_-]{2,5})$/;
+		
+		function testInputs(){
+			document.getElementById("login_alerts").innerHTML=("");
+			//trim() accidental spaces
+			var email = document.getElementById("login_field").value.trim();
+			var password = document.getElementById("password_field").value;
+			
+			if(!emailPattern.test(email)) {
+			document.getElementById("login_alerts").innerHTML+=("<b>-Invalid email!</b><br>");
+			}
+			if(password.length<8 || password.length>20) {
+			document.getElementById("login_alerts").innerHTML+=("<b>-Password must have<br>8-20 symbols!</b><br>");
+			}
+			if(!/(?=.*[a-zа-я])/.test(password) || !/(?=.*[A-ZА-Я])/.test(password)) {
+			document.getElementById("login_alerts").innerHTML+=("<b>-Password must have both<br>uppercase and lowercase letters!</b><br>");
+			}
+			if(!/(?=.*[@#$%^&*_=+])/.test(password)) {
+			document.getElementById("login_alerts").innerHTML+=("<b>-Password must contain<br>special symbols (@#$%^&*_=+)!</b><br>");
+			}
+		}   
+    </script>
+   </head>
+   <body>
+      <header>
+         <h1><img class="folder" src="folder.png" height="70">File storage v1.0<img class="folder" src="folder.png" height="70"></h1>
+         <hr>
+      </header>
+      <div id="login_status">You must login to use this website</div>
+      <hr>
+      <div id="main">
+         <div id="tips">
+            <div></div>
+         </div>
+         <div id="files">
+            <div>
+               <div class="input_field">
+			    <b>Sign in:</b><br><br>
+                  Login: <input type="text" class="inputs" placeholder="Your login"><br><br>
+                  Password: <input type="password" class="inputs" placeholder="Your password"><br><br>
+                  Remember me: <input type="checkbox" class="inputs"><br><br>
+                  <input type="submit" value="Sign in" class="inputs">
+               </div>
+			   <br><br>
+			   <div class="input_field">
+			   <b>Create account if you don't have one:</b><br><div style="float:right; margin-right:20px;" id="login_alerts"></div><br>
+                  Login (email): <input type="text" class="inputs" placeholder="Your email" id="login_field"><br><br>
+                  Password: <input type="text" class="inputs" placeholder="Make up a password" id="password_field"><br><br>
+                  <br>
+                  <input type="submit" value="Create account" class="inputs" onclick="testInputs()">
+               </div>
+			   
+            </div>
+         </div>
+         <div id="stats">
+            <div>
+               <strong>Stats:</strong>
+               <ul>
+                  <li>Users: 123</li>
+                  <li>Files: 6942</li>
+                  <li>Total storage: 2500 Mb</li>
+                  <li>Storage per user: 50 Mb</li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <footer><strong>Created by Oleksandr Travienikov</strong></footer>
+   </body>
+</html>
